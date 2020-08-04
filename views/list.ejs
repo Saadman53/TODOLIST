@@ -1,0 +1,47 @@
+<!-- basically list template for all lists -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Todolist web application">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Node.js, MongoDB">
+    <meta name="author" content="Saadman Sakib Siyam">
+    
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="popupS.css">
+  </head>
+  <body>
+    <div class="box" id="heading">
+      <h1> <%= listName %> </h1>
+    </div>
+
+    <div class="box" id="heading">
+      <h1> <%= kindOfDay %> </h1>
+    </div>
+
+    <div class="box">
+      <form class="item" method="post" action="/">
+        <input type="text" name="newItem" placeholder="Add new item" autocomplete="off">
+        <button type="submit" name="listaddButton" value="<%=listName%>">+</button>
+      </form>
+
+      <% newListItems.forEach(function(task){%>
+      <form action="/delete" method="post">
+        <div class="item">
+            <input type="checkbox" name="checkbox" value="<%=task._id%>" onChange="this.form.submit()" >
+            <p> <%= task.item %> </p>
+        </div>
+        <input type="hidden" name="ListName" value="<%=listName%>"></input>
+     </form>
+      <%})%>
+
+
+
+    </div>
+    <footer>© 2020 Saadman Sakib</a>. All rights reserved.</footer>
+
+
+  </body>
+</html>
