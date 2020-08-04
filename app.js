@@ -10,7 +10,7 @@
 
  todoController(app);
 
- app.listen(3000,function(){
+ app.listen(process.env.PORT,function(){
    console.log("Listening to server 3000");
  });
 
